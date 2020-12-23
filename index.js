@@ -1,7 +1,7 @@
 const axios = require("axios");
 const audic = require("audic");
 
-sound = new Audic();
+//sound = new Audic();
 
 function Loop()
 {
@@ -22,21 +22,20 @@ function Loop()
 function GetMatchData()
 {
     // send request
-    let data;
     axios.get("http://127.0.0.1:6721/session").then((response)=>{
-        
-        data = response.data;
-    
+        console.log(response);
     }).catch((err)=>{
         console.error(err);
         return false;
     })
 
     // parse json
-    data = JSON.parse(data);
+
+    //console.clear();
+    //console.log(matchData);
     
     // return parsed data
-    return data;
+    //return matchData;
 }
 
-let interval = setInterval(Loop, 10);
+let interval = setInterval(Loop, 1000);
