@@ -1,0 +1,19 @@
+{
+  "name": "echoarenadatatts",
+  "version": "1.0.0",
+  "description": "Echo Arena Util Program",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sherstav/EchoArenaDataTTS.git"
+  },
+  "author": "Shersal, SupaStav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sherstav/EchoArenaDataTTS/issues"
+  },
+  "homepage": "https://github.com/Sherstav/EchoArenaDataTTS#readme"
+}
