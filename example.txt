@@ -1,0 +1,235 @@
+{
+  "disc": {
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "forward": [
+      0,
+      0,
+      1
+    ],
+    "left": [
+      1,
+      0,
+      0
+    ],
+    "up": [
+      0,
+      1,
+      0
+    ],
+    "velocity": [
+      0,
+      0,
+      0
+    ],
+    "bounce_count": 0
+  },
+  "sessionid": "BC895AC3-11D3-4663-A750-0B4E2C72DEEB",
+  "orange_team_restart_request": 0,
+  "sessionip": "45.32.92.111",
+  "game_status": "pre_match",
+  "game_clock_display": "10:00.00",
+  "game_clock": 600,
+  "match_type": "Echo_Arena_Private",
+  "map_name": "mpl_arena_a",
+  "private_match": true,
+  "orange_points": 0,
+  "player": {
+    "vr_left": [
+      0.67200005,
+      0.059000004,
+      0.73800004
+    ],
+    "vr_position": [
+      1.284,
+      -1.006,
+      0.52700001
+    ],
+    "vr_forward": [
+      -0.74000001,
+      0.063000001,
+      0.66900003
+    ],
+    "vr_up": [
+      0.0070000002,
+      0.99600005,
+      -0.086000003
+    ]
+  },
+  "pause": {
+    "paused_state": "unpaused",
+    "unpaused_team": "none",
+    "paused_requested_team": "none",
+    "unpaused_timer": 0,
+    "paused_timer": 0
+  },
+  "possession": [
+    -1,
+    -1
+  ],
+  "tournament_match": false,
+  "blue_team_restart_request": 0,
+  "client_name": "shersal",
+  "blue_points": 0,
+  "last_score": {
+    "disc_speed": 0,
+    "team": "orange",
+    "goal_type": "[NO GOAL]",
+    "point_amount": 0,
+    "distance_thrown": 0,
+    "person_scored": "[INVALID]",
+    "assist_scored": "[INVALID]"
+  },
+  "teams": [
+    {
+      "players": [
+        {
+          "rhand": {
+            "pos": [
+              0.18100001,
+              4.256,
+              -49.230003
+            ],
+            "forward": [
+              -0.90700006,
+              -0.32100001,
+              -0.27400002
+            ],
+            "left": [
+              0.11000001,
+              -0.80700004,
+              0.58000004
+            ],
+            "up": [
+              -0.40700001,
+              0.49500003,
+              0.76700002
+            ]
+          },
+          "playerid": 0,
+          "name": "shersal",
+          "userid": 1583776165050733,
+          "stats": {
+            "possession_time": 0,
+            "points": 0,
+            "saves": 0,
+            "goals": 0,
+            "stuns": 0,
+            "passes": 0,
+            "catches": 0,
+            "steals": 0,
+            "blocks": 0,
+            "interceptions": 0,
+            "assists": 0,
+            "shots_taken": 0
+          },
+          "number": 0,
+          "level": 50,
+          "stunned": false,
+          "ping": 48,
+          "invulnerable": false,
+          "head": {
+            "position": [
+              0.78000003,
+              4.7190003,
+              -49.226002
+            ],
+            "forward": [
+              0.73800004,
+              -0.086000003,
+              0.66900003
+            ],
+            "left": [
+              0.67200005,
+              0.0070000002,
+              -0.74000001
+            ],
+            "up": [
+              0.059000004,
+              0.99600005,
+              0.063000001
+            ]
+          },
+          "possession": false,
+          "body": {
+            "position": [
+              0.78000003,
+              4.7190003,
+              -49.226002
+            ],
+            "forward": [
+              0.15800001,
+              0,
+              0.98700005
+            ],
+            "left": [
+              0.98700005,
+              0,
+              -0.15800001
+            ],
+            "up": [
+              0,
+              1,
+              0
+            ]
+          },
+          "lhand": {
+            "pos": [
+              0.39100003,
+              4.0770001,
+              -49.013
+            ],
+            "forward": [
+              0.97000003,
+              -0.23700002,
+              -0.053000003
+            ],
+            "left": [
+              0.18800001,
+              0.87400001,
+              -0.44900003
+            ],
+            "up": [
+              0.15300001,
+              0.42500001,
+              0.89200002
+            ]
+          },
+          "blocking": false,
+          "velocity": [
+            0.003,
+            0.048,
+            -0.0070000002
+          ]
+        }
+      ],
+      "team": "TEST",
+      "possession": false,
+      "stats": {
+        "possession_time": 0,
+        "points": 0,
+        "goals": 0,
+        "saves": 0,
+        "stuns": 0,
+        "interceptions": 0,
+        "blocks": 0,
+        "passes": 0,
+        "catches": 0,
+        "steals": 0,
+        "assists": 0,
+        "shots_taken": 0
+      }
+    },
+    {
+      "team": "ORANGE TEAM",
+      "possession": false
+    },
+    {
+      "team": "SPECTATORS",
+      "possession": false
+    }
+  ]
+}

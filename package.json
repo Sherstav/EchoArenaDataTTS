@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/Sherstav/EchoArenaDataTTS/issues"
   },
-  "homepage": "https://github.com/Sherstav/EchoArenaDataTTS#readme"
+  "homepage": "https://github.com/Sherstav/EchoArenaDataTTS#readme",
+  "dependencies": {
+    "audic": "^2.0.0",
+    "axios": "^0.21.1",
+    "google-tts-api": "^2.0.0"
+  }
 }
