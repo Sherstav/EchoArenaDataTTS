@@ -13,10 +13,10 @@ function Loop()
 
     
     // if match is a game, get ip etc
-    ProcessInput();
+    // ProcessInput();
 
     // tts
-    sound.play();
+    // sound.play();
 }
 
 function GetMatchData()
