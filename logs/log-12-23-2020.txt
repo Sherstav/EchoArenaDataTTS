@@ -1,0 +1,3 @@
+Program startup
+[23:28:47] Startup
+[23:28:47] Success checking api-key.
