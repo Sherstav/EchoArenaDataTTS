@@ -26,6 +26,12 @@ function LogError(str)
 
 function Log(str)
 {
+    console.log(str);
+    fs.appendFile("./logs/"+GetLogName(), GetTimeStamp() + " " + str + "\n", ()=>{});
+}
+
+function LogOnly(str)
+{
     fs.appendFile("./logs/"+GetLogName(), GetTimeStamp() + " " + str + "\n", ()=>{});
 }
 
@@ -90,6 +96,9 @@ function Loop()
     Main();
 }
 
+let conErrorCount = 0;
+let contactMessage = false;
+
 function Main()
 {
     // send request
@@ -99,10 +108,27 @@ function Main()
         {
             lastMap = response.data.map_name;
             Log("Just joined");
+            conErrorCount = 0;
             ProcessInput(response.data);
         }
     }).catch((err)=>{
-        LogError("ERROR: " + err);
+        if (err.code = "ECONNREFUFSED")
+        {
+            if (conErrorCount < 3)
+            {
+                LogError("Connection refused.");
+                conErrorCount++;
+            }
+            if (conErrorCount == 3 && contactMessage == false)
+            {
+                LogError("Make sure Echo VR is open. If this issue persists, contact a developer.");
+                contactMessage = true;
+            }
+        }
+        else
+        {
+            LogError("API connection error: " + err);
+        }
     })
 }
 
