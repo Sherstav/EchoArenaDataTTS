@@ -1,3 +1,10 @@
 Program startup
 [23:28:47] Startup
 [23:28:47] Success checking api-key.
+Program startup
+[23:33:14] Startup
+[23:33:14] Success checking api-key.
+[23:33:17] ERROR: Error: connect ECONNREFUSED 127.0.0.1:6721
+[23:33:18] ERROR: Error: connect ECONNREFUSED 127.0.0.1:6721
+[23:33:19] ERROR: Error: connect ECONNREFUSED 127.0.0.1:6721
+[23:33:20] ERROR: Error: connect ECONNREFUSED 127.0.0.1:6721
