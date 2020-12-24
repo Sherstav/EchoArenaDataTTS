@@ -2,7 +2,7 @@
 
 ## Description
 
-EchoArenaDataTTS is a program that runs in the background while you play Echo VR, and when you join a match reads to you
+EchoArenaDataTTS is a program that runs in the background while you play Echo VR, and when you join a match reads to you where the server is located with text to speech.
 
 ## Requirements
 
@@ -16,7 +16,21 @@ This program runs on node.js and requires it to work. You can download the lates
 
 ## Install Guide
 
-Download and extract the latest version of EchoArenaDataTTS into its own folder.
+- Download and extract the latest version of EchoArenaDataTTS into its own folder
+- Run the program by double clicking on the run.bat file
+- A text file called api-key.txt should have been generated. Open the file with a text editor, and paste in an api-key. Instructions on how to get an api-key are in the section below
+- Now run the program again, and make sure you get the message `Success checking api-key.`
+- Start Echo VR and when you join the lobby, you should hear a text to speech voice saying the location of the lobby you have joined
 
 ## Creating a valid api-key
 
+- Ceate an account with the IP location provider we use [here](https://ipgeolocation.io/signup.html)
+- After logging in, go to your dashboard and copy your API key, and paste it into the api-key.txt file.
+Make sure that your api key is the only thing in the api-key.txt file. If the api-key.txt file does not
+exist, try running the program by double clicking run.bat.
+
+## Troubleshooting
+
+### Sound not working
+
+- Make sure your computer's output device is set to your headset's speakers

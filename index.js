@@ -39,13 +39,17 @@ if (!fs.existsSync("./logs"))
 {
     fs.mkdirSync("./logs")
 }
-fs.appendFile("./logs/" + GetLogName(), "Program startup"+"\n" , ()=>{
-    Log("Startup");
-});
+
+Log("Startup");
+
+function GetAPIURL(key, ip)
+{
+    return "https://api.ipgeolocation.io/ipgeo?apiKey="+key+"&ip="+ip;
+}
 
 function PrintError(errorWhile, errorText)
 {
-    LogError("Error while "+errorWhile+": " + errorText);
+    LogError("Error while "+errorWhile +": " + errorText);
     LogError("Please report this to a developer on Discord: shersal#2106  Registered#1266");
     LogError("If you can't send a direct message, join the Echo VR Discord server and try again.");
 }
@@ -62,23 +66,13 @@ if(!fs.existsSync("./api-key.txt"))
 }
 const apiKey = fs.readFileSync("./api-key.txt","utf8");
 
-axios.get("http://api.ipstack.com/1.1.1.1?access_key="+apiKey).then((response)=>{
+axios.get(GetAPIURL(apiKey, "1.1.1.1")).then((response)=>{
     let data = response.data;
+    // Log(GetAPIURL(apiKey, "1.1.1.1"));
 
-    if (data.hasOwnProperty("success") && data.success == false)
+    if (data.hasOwnProperty("message"))
     {
-        if (data.error.code == 101)
-        {
-            LogError("Invalid api-key! Check the installation instructions to create a valid api key.");
-        }
-        else if (data.error.code == 104)
-        {
-            LogError("Usage limit reached for this api key.");
-        }
-        else
-        {
-            PrintError("sending api-key check request", data.error.info);
-        }
+        LogError("Error while checking api-key: " + data.message);
         process.exit(1);
     }
     else
@@ -124,6 +118,10 @@ function Main()
                 LogError("Make sure Echo VR is open. If this issue persists, contact a developer.");
                 contactMessage = true;
             }
+            if (conErrorCount == 3)
+            {
+                LogOnly("Connection refused.");
+            }
         }
         else
         {
@@ -135,12 +133,12 @@ function Main()
 function ProcessInput(data)
 {
     let ip = data.sessionip;
-    Log("http://api.ipstack.com/" + ip + "?access_key=" + apiKey);
+    Log(GetAPIURL(apiKey, ip));
 
-    axios.get("http://api.ipstack.com/" + ip + "?access_key=" + apiKey).then((response)=>{
+    axios.get(GetAPIURL(apiKey, ip)).then((response)=>{
         let data = response.data;
         Log(data);
-        let location = {continent: data.continent_name, continent_code: data.continent_code, country: data.country_name, country_code: data.country_code, region: data.region_name, city: data.city};
+        let location = {continent: data.continent_name, continent_code: data.continent_code, country: data.country_name, country_code: data.country_code2, region: data.state_prov, city: data.city, isp: data.isp};
         GenerateOutput(location);
     }).catch((err)=>{
         LogError(err);
@@ -154,7 +152,7 @@ function GenerateOutput(location)
     // the server location is france in EU
     // the server location is Calfifornia in US
 
-    const url = googleTTS.getAudioUrl("The server location is " + location.city + ", " + location.region + ", in " + location.country, {
+    const url = googleTTS.getAudioUrl("The server location is " + location.city + ", " + location.region + ", in " + location.country + ", under " + isp, {
         lang: "en-US",
         slow: false,
         host: "https://translate.google.com"
