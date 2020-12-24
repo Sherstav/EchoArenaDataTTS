@@ -13,6 +13,10 @@ This program only works with Echo VR on PC, meaning running on a Rift of Rift S.
 - node.js
 This program runs on node.js and requires it to work. You can download the latest version [here](https://nodejs.org/en/download/).
 
+
 ## Install Guide
 
 Download and extract the latest version of EchoArenaDataTTS into its own folder.
+
+## Creating a valid api-key
+
