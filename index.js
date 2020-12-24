@@ -29,6 +29,10 @@ function Log(str)
     fs.appendFile("./logs/"+GetLogName(), GetTimeStamp() + " " + str + "\n", ()=>{});
 }
 
+if (!fs.existsSync("./logs"))
+{
+    fs.mkdirSync("./logs")
+}
 fs.appendFile("./logs/" + GetLogName(), "Program startup"+"\n" , ()=>{
     Log("Startup");
 });
