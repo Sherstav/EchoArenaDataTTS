@@ -5,7 +5,7 @@ const config = require("./api-key.json");
 
 //sound = new Audic();
 
-let joined = false;
+let lastMap = "";
 
 function Loop()
 {
@@ -17,16 +17,11 @@ function Main()
     // send request
     axios.get("http://127.0.0.1:6721/session").then((response)=>{
         //console.log(response.data.response);
-        if(response.data.map_name == "mpl_arena_a" && joined == false)
+        if(response.data.map_name != lastMap)
         {
-            joined = true;
+            lastMap = response.data.map_name;
             console.log("Just joined");
             ProcessInput(response.data);
-        }
-        else if (response.data.map_name != "mpl_arena_a" && joined == true)
-        {
-            joined = false;
-            console.log("Just left");
         }
     }).catch((err)=>{
         console.error("ERROR: " + err);
