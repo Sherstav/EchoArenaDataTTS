@@ -28,7 +28,7 @@ This program runs on node.js and requires it to work. You can download the lates
 
 ## Creating a valid api-key
 
-- Ceate an account with the IP location provider we use [here](https://ipgeolocation.io/signup.html)
+- Create an account with the IP location provider we use [here](https://ipgeolocation.io/signup.html)
 - After logging in, go to your dashboard and copy your API key, and paste it into the api-key.txt file.
 Make sure that your api key is the only thing in the api-key.txt file. If the api-key.txt file does not
 exist, try running the program by double clicking run.bat.
