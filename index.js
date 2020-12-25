@@ -168,7 +168,7 @@ function GenerateOutput(location)
     // the server location is france in EU
     // the server location is Calfifornia in US
 
-    const url = googleTTS.getAudioUrl("The server location is " + location.city + ", " + location.region + ", in " + location.country + ", under " + isp, {
+    const url = googleTTS.getAudioUrl("The server location is " + location.city + ", " + location.region + ", in " + location.country + ", under " + location.isp, {
         lang: "en-US",
         slow: false,
         host: "https://translate.google.com"
