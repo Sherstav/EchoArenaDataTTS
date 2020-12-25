@@ -68,6 +68,12 @@ axios.get("https://status.chaugh.com/EchoArenaDataTTS/latest-version.json").then
     {
         Log("Up to date.");
     }
+    if (parseData.prelease)
+    {
+        Log("WARNING: This build is a prerelease, and issues may occur. If you do find any,");
+        Log("please report them to a developer on Discord: shersal#2106  Registered#1266");
+        Log("If you can't send a direct message, join the Echo VR Discord server and try again.");
+    }
 }).catch((err)=>{
     PrintError("sending version check request", err);
 });
@@ -82,9 +88,10 @@ if(!fs.existsSync("./api-key.txt"))
 }
 const apiKey = fs.readFileSync("./api-key.txt","utf8");
 
+//Log(GetAPIURL(apiKey, "1.1.1.1"));
 axios.get(GetAPIURL(apiKey, "1.1.1.1")).then((response)=>{
     let data = response.data;
-    // Log(GetAPIURL(apiKey, "1.1.1.1"));
+    
 
     if (data.hasOwnProperty("message"))
     {
@@ -97,7 +104,17 @@ axios.get(GetAPIURL(apiKey, "1.1.1.1")).then((response)=>{
         setInterval(Loop, 1000);
     }
 }).catch((err)=>{
-    PrintError("sending api-key check request", err);
+    if (err.response.status == 400)
+    {
+        LogError("Error while sending api-key check request");
+        LogError("Make sure that your api key is in the api-key.txt file with nothing else in the file.")
+        LogError("If the issue persists, report this to a developer on Discord: shersal#2106  Registered#1266");
+        LogError("If you can't send a direct message, join the Echo VR Discord server and try again.");
+    }
+    else
+    {
+        PrintError("sending api-key check request", err);
+    }
 });
 
 function Loop()
