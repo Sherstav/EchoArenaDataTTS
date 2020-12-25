@@ -2,6 +2,7 @@ const axios = require("axios");
 const googleTTS = require("google-tts-api"); // here lies the remains of reguire()
 const audic = require("audic");
 const fs = require("fs");
+const version = fs.readFileSync("version.json", "utf8");
 
 //sound = new Audic();
 
@@ -56,6 +57,21 @@ function PrintError(errorWhile, errorText)
 
 let lastMap = "";
 
+axios.get("https://status.chaugh.com/EchoArenaDataTTS/latest-version.json").then((response)=>{
+    let data = response.data;    
+    let parseData = JSON.parse(version);
+    if(!(data.major == parseData.major && data.minor == parseData.minor && data.patch == parseData.patch))
+    {
+        LogError("Version out of date, your version is: " + parseData.major + "." + parseData.minor + "." + parseData.patch + ". Current version is: " + data.major + "." + data.minor + "." + data.patch + ". You can download the latest version on our github.");
+    }
+    else 
+    {
+        Log("Up to date.");
+    }
+}).catch((err)=>{
+    PrintError("sending version check request", err);
+});
+
 if(!fs.existsSync("./api-key.txt"))
 {
     LogError("No api-key file found. Generating one. You must enter your API Key into the file for the program to run. Instructions can be found in the installation tutorial");
@@ -82,7 +98,7 @@ axios.get(GetAPIURL(apiKey, "1.1.1.1")).then((response)=>{
     }
 }).catch((err)=>{
     PrintError("sending api-key check request", err);
-})
+});
 
 function Loop()
 {
