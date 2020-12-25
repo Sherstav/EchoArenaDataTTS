@@ -4,6 +4,8 @@
 
 EchoArenaDataTTS is a program that runs in the background while you play Echo VR, and when you join a match reads to you where the server is located with text to speech.
 
+#### You can download it [here](https://github.com/Sherstav/EchoArenaDataTTS/releases)
+
 ## Requirements
 
 To use this program, you require:
