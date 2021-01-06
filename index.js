@@ -43,9 +43,9 @@ if (!fs.existsSync("./logs"))
 
 Log("Startup");
 
-function GetAPIURL(key, ip)
+function GetAPIURL(ip)
 {
-    return "https://api.ipgeolocation.io/ipgeo?apiKey="+key+"&ip="+ip;
+    return "http://ip-api.com/json/"+ip;
 }
 
 function PrintError(errorWhile, errorText)
@@ -78,18 +78,8 @@ axios.get("https://status.chaugh.com/EchoArenaDataTTS/latest-version.json").then
     PrintError("sending version check request", err);
 });
 
-if(!fs.existsSync("./api-key.txt"))
-{
-    LogError("No api-key file found. Generating one. You must enter your API Key into the file for the program to run. Instructions can be found in the installation tutorial");
-    fs.appendFile("api-key.txt", " ", (err)=>{
-        PrintError("generating api-key file", err);
-    });
-    process.exit(1);
-}
-const apiKey = fs.readFileSync("./api-key.txt","utf8");
-
 //Log(GetAPIURL(apiKey, "1.1.1.1"));
-axios.get(GetAPIURL(apiKey, "1.1.1.1")).then((response)=>{
+axios.get(GetAPIURL("1.1.1.1")).then((response)=>{
     let data = response.data;
     
 
@@ -100,11 +90,11 @@ axios.get(GetAPIURL(apiKey, "1.1.1.1")).then((response)=>{
     }
     else
     {
-        Log("Success checking api-key.");
+        Log("Success checking api");
         setInterval(Loop, 1000);
     }
 }).catch((err)=>{
-    if (err.response.status == 400)
+    if (err.response.status == "fail")
     {
         LogError("Error while sending api-key check request");
         LogError("Make sure that your api key is in the api-key.txt file with nothing else in the file.")
@@ -166,9 +156,9 @@ function Main()
 function ProcessInput(data)
 {
     let ip = data.sessionip;
-    Log(GetAPIURL(apiKey, ip));
+    Log(GetAPIURL(ip));
 
-    axios.get(GetAPIURL(apiKey, ip)).then((response)=>{
+    axios.get(GetAPIURL(ip)).then((response)=>{
         let data = response.data;
         Log(data);
         let location = {continent: data.continent_name, continent_code: data.continent_code, country: data.country_name, country_code: data.country_code2, region: data.state_prov, city: data.city, isp: data.isp};
