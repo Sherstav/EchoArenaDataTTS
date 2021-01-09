@@ -161,7 +161,7 @@ function ProcessInput(data)
     axios.get(GetAPIURL(ip)).then((response)=>{
         let data = response.data;
         Log(data);
-        let location = {continent: data.continent_name, continent_code: data.continent_code, country: data.country_name, country_code: data.country_code2, region: data.state_prov, city: data.city, isp: data.isp};
+        let location = {continent: data.continentName, continent_code: data.continentCode, country: data.country, country_code: data.countryCode, region: data.regionName, city: data.city, isp: data.isp};
         GenerateOutput(location);
     }).catch((err)=>{
         LogError(err);
