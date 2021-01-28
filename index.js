@@ -50,7 +50,7 @@ function GetAPIURL(ip)
 
 function PrintError(errorWhile, errorText)
 {
-    LogError("Error while "+errorWhile +": " + errorText);
+    LogError("Error while " + errorWhile + ": " + errorText);
     LogError("Please report this to a developer on Discord: shersal#2106  Registered#1266");
     LogError("If you can't send a direct message, join the Echo VR Discord server and try again.");
 }
@@ -109,17 +109,36 @@ axios.get(GetAPIURL("1.1.1.1")).then((response)=>{
 
 function Loop()
 {
-
     Main();
 }
 
 let conErrorCount = 0;
 let contactMessage = false;
 
+let headset = "127.0.0.1";
+
+// check if there is an override ip
+
+if (fs.existsSync("QuestIP.txt"))
+{
+    Log("Found QuestIP.txt.");
+    // read it
+    let a = fs.readFileSync("QuestIP.txt", "utf8");
+    a ? headset = a : null;
+}
+else
+{
+    // make it
+    Log("QuestIP.txt doesn't exist, making it.");
+    fs.appendFile("QuestIP.txt", "", ()=>{});
+}
+
+Log("Connecting with IP " + headset);
+
 function Main()
 {
     // send request
-    axios.get("http://127.0.0.1:6721/session").then((response)=>{
+    axios.get("http://" + headset + ":6721/session").then((response)=>{
         //Log(response.data.response);
         if(response.data.map_name != lastMap)
         {
