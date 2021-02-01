@@ -45,7 +45,7 @@ If you are able to get the IP of your Quest 1, the rest of the program should st
 - Click on Wifi box to view your Wifi networks
 - Click on the network you are currently connected to
 - Scroll down and click on Advanced
-- Keep scrolling down until you find IP Adress. The number below is your Quest's IP Adress. It should be 4 numbers seperated by periods. Return to your computer and enter this into the QuestIP.txt file
+- Keep scrolling down until you find IP Address. The number below is your Quest's IP Address. It should be 4 numbers seperated by periods. Return to your computer and enter this into the QuestIP.txt file
 
 ## Troubleshooting
 
